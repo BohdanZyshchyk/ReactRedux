@@ -39,7 +39,7 @@ class Navbar extends Component {
                             </div>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link disabled" to="/">Profile</Link>
+                            <Link className="nav-link disabled" to="/"> {this.props.user.name}</Link>
                         </li>
                     </ul>
                     <form className="form-inline my-2 my-lg-0">
@@ -54,7 +54,8 @@ class Navbar extends Component {
 
 const mapState=(stateRedux)=>{
     return{
-        isAuthenticated:stateRedux.login.isAuthenticated
+        isAuthenticated:stateRedux.login.isAuthenticated,
+        user: stateRedux.login.user
     }
 }
 export default connect(mapState)(Navbar);
